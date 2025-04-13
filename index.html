@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sipul</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/IMG_6935.JPG" type="image/jpeg">
+</head>
+<body>
+  <header>
+  <h1 class="band-name">SIPUL</h1>
+    <!-- Cat Logo -->
+    <img src="img/IMG_6935.JPG" alt="Sipul Logo" class="logo">
+<p class="band-bio">Three piece Alternative/Punk/Grunge band from Rochester, NY</p>
+
+  </header>
+
+  <!-- Feature Section with Single -->
+<div class="main-content">
+  <section class="feature">
+    <h1>Recent Release</h1>
+    <p>Eating a Reuben Alone in a DMV Bathroom</p>
+    <img src="img/Reuben 2.png" alt="Reuben Cover" class="cover-art">
+    <audio controls>
+      <source src="audio/reuben_song.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section class="events">
+    <h2>WHAT'S NEXT</h2>
+    <!-- Placeholder; will be replaced by JavaScript -->
+    <p class="placeholder">Loading events...</p>
+  </section>
+</div>
+
+  <!-- Footer with Social Links -->
+  <footer>
+    <p class="social">
+      <a href="https://www.facebook.com/sipulband" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/Sipul_band" target="_blank">Instagram</a> |
+      <a href="http://sipul.bandcamp.com" target="_blank">Bandcamp</a> |
+      <a href="https://www.youtube.com/@sipul_band" target="_blank">YouTube</a> |
+      <a href="https://music.apple.com/us/artist/lupis/1513662437" target="_blank">Apple Music</a> |
+      <a href="https://open.spotify.com/artist/48ZfMRgqAqcld9iAYtAs5v" target="_blank">Spotify</a>
+    </p>
+  </footer>
+
+  <!-- Dynamic Event Loading Script -->
+  <script>
+    // Fetch the events from events.json and update the events section
+    fetch('events.json')
+      .then(response => response.json())
+      .then(data => {
+        const eventsSection = document.querySelector('.events');
+        // Remove initial placeholder content
+        eventsSection.innerHTML = '<h2>WHAT\'S NEXT</h2>';
+        
+        // Create an unordered list to hold events
+        const eventList = document.createElement('ul');
+        eventList.className = 'event-list';
+        
+        if (data.length === 0) {
+          const placeholderItem = document.createElement('li');
+          placeholderItem.textContent = 'Stay tuned for upcoming events.';
+          eventList.appendChild(placeholderItem);
+        } else {
+          data.forEach(event => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${event.date}:</strong> ${event.description}`;
+            eventList.appendChild(li);
+          });
+        }
+        
+        eventsSection.appendChild(eventList);
+      })
+      .catch(error => {
+        console.error('Error loading events:', error);
+        const eventsSection = document.querySelector('.events');
+        eventsSection.innerHTML = '<h2>WHAT\'S NEXT</h2><p>Stay tuned for upcoming events.</p>';
+      });
+  </script>
+</body>
+</html>

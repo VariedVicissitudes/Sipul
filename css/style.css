@@ -1,0 +1,121 @@
+/* Reset some basic styles */
+body, h1, h2, p, ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set #570066 background and aqua text for the body */
+body {
+  background-color: #570066;
+  color: aqua;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+.band-name {
+  font-size: 3rem;
+  font-weight: 900;
+  color: pink;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.1rem;
+}
+
+/* Centered logo and bio section */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.band-bio {
+  color: aqua;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Main content layout for music and events */
+.main-content {
+  color: #570066;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.feature, .events {
+  text-align: center;
+  flex: 1 1 40%;
+  max-width: 500px;
+  background-color: #00ffb0;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+/* Headings */
+h1, h2 {
+  font-family: Arial, sans-serif;
+  color: hotpink; /* hotpink headlines */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Song feature styles */
+.cover-art {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 1rem auto;
+}
+
+audio {
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+}
+
+/* Event list */
+.events ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.events li {
+  margin-bottom: 0.5rem;
+}
+
+/* Placeholder when no events */
+.placeholder {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Social links */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+footer a {
+  color: aqua;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 0.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+footer a:hover {
+  color: #ff69b4;
+  text-decoration: underline;
+}
