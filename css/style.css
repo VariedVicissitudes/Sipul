@@ -69,20 +69,48 @@ h1, h2 {
   margin-bottom: .25rem;
 }
 
-/* Song feature styles */
-.cover-art {
-  width: 150%;
-  max-width: 350px;
-  display: block;
-  margin: .25rem auto;
-  border-radius: 20px;
+/* Playlist Section */
+.playlist {
+  background-color: #bd5d12;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
-audio {
+/* Player container */
+.player {
+  margin-bottom: 1.5rem;
+}
+.cover-art {
+  max-width: 300px;
   display: block;
-  margin: 1rem auto;
-  width: 90%;
-  color: #5ea9a2
+  margin: 0 auto 1rem;
+}
+
+/* Controls styling */
+.controls button {
+  background-color: #012b27;
+  color: #5ea9a2;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.controls button:hover {
+  background-color: #47a5f1;
+}
+
+/* Playlist list */
+#playlistList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+#playlistList li {
+  margin: 0.5rem 0;
+  cursor: pointer;
 }
 
 /* Event list */

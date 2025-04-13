@@ -18,13 +18,108 @@
   <!-- Feature Section with Single -->
 <div class="main-content">
   <section class="feature">
-    <h1>Recent Release</h1>
-    <p>Eating a Reuben Alone in a DMV Bathroom</p>
-    <img src="img/Reuben 2.png" alt="Reuben Cover" class="cover-art">
-    <audio controls>
-      <source src="audio/reuben_song.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-    </audio>
+    <h1>Recent Releases</h1>
+        <!-- Custom Playlist Section -->
+  <section class="playlist">
+    <div class="player">
+      <!-- Album Cover Image -->
+      <img id="coverImage" src="img/Reuben 2.png" alt="Album Cover" class="cover-art">
+      <!-- Song Title -->
+      <h2 id="songTitle">Eating a Reuben Alone in a DMV Bathroom</h2>
+      <!-- Audio Player -->
+      <audio id="audioPlayer" controls>
+        <source id="audioSource" src="audio/reuben_song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- Navigation Buttons -->
+    <div class="controls">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+    <!-- Optional: Display Playlist -->
+    <ul id="playlistList">
+      <!-- JavaScript will populate this list -->
+    </ul>
+  </section>
+
+  <!-- Custom Playlist JavaScript -->
+  <script>
+    // Define your playlist as an array of song objects
+    const songs = [
+      {
+        title: "Eating a Reuben Alone in a DMV Bathroom",
+        audio: "audio/reuben_song.mp3",
+        cover: "img/Reuben 2.png"
+      },
+      {
+        title: "Margarine of Error",
+        audio: "audio/margarine_of_error.mp3",
+        cover: "img/margarine_of_error.png"
+      }
+      // Add as many songs as you like...
+    ];
+
+    let currentTrack = 0;
+
+    // Get references to the DOM elements
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioSource = document.getElementById('audioSource');
+    const coverImage = document.getElementById('coverImage');
+    const songTitle = document.getElementById('songTitle');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const playlistList = document.getElementById('playlistList');
+
+    // Function to load a track based on currentTrack index
+    function loadTrack(index) {
+      const track = songs[index];
+      songTitle.textContent = track.title;
+      audioSource.src = track.audio;
+      coverImage.src = track.cover;
+      audioPlayer.load(); // Reload the audio element to reflect changes
+      updatePlaylistUI();
+    }
+
+    // Function to update the playlist UI (highlight current track)
+    function updatePlaylistUI() {
+      // Clear current list
+      playlistList.innerHTML = '';
+      songs.forEach((song, index) => {
+        const li = document.createElement('li');
+        li.textContent = song.title;
+        // Highlight the current track
+        if (index === currentTrack) {
+          li.style.fontWeight = 'bold';
+          li.style.color = '#012b27';
+        }
+        // Allow clicking to change track
+        li.addEventListener('click', () => {
+          currentTrack = index;
+          loadTrack(currentTrack);
+          audioPlayer.play();
+        });
+        playlistList.appendChild(li);
+      });
+    }
+
+    // Event listeners for Next and Previous buttons
+    nextBtn.addEventListener('click', () => {
+      currentTrack = (currentTrack + 1) % songs.length;
+      loadTrack(currentTrack);
+      audioPlayer.play();
+    });
+    prevBtn.addEventListener('click', () => {
+      currentTrack = (currentTrack - 1 + songs.length) % songs.length;
+      loadTrack(currentTrack);
+      audioPlayer.play();
+    });
+
+    // Initialize the playlist UI on page load
+    loadTrack(currentTrack);
+  </script>
+</body>
+</html>
   </section>
 
   <!-- Upcoming Events Section -->
