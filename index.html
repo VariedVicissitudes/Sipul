@@ -143,38 +143,38 @@
   </footer>
 
   <!-- Dynamic Event Loading Script -->
-  <script>
-    // Fetch the events from events.json and update the events section
-    fetch('events.json')
-      .then(response => response.json())
-      .then(data => {
-        const eventsSection = document.querySelector('.events');
-        // Remove initial placeholder content
-        eventsSection.innerHTML = '<h2>WHAT\'S NEXT</h2>';
-        
-        // Create an unordered list to hold events
-        const eventList = document.createElement('ul');
-        eventList.className = 'event-list';
-        
-        if (data.length === 0) {
-          const placeholderItem = document.createElement('li');
-          placeholderItem.textContent = 'Stay tuned for upcoming events.';
-          eventList.appendChild(placeholderItem);
-        } else {
-          data.forEach(event => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${event.date}:</strong> ${event.description}`;
-            eventList.appendChild(li);
-          });
-        }
-        
-        eventsSection.appendChild(eventList);
-      })
-      .catch(error => {
-        console.error('Error loading events:', error);
-        const eventsSection = document.querySelector('.events');
-        eventsSection.innerHTML = '<h2>WHAT\'S NEXT</h2><p>Stay tuned for upcoming events.</p>';
-      });
-  </script>
+<script>
+  fetch('events.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Events loaded:', data);
+      // Now update your event list in the DOM
+      const eventsSection = document.querySelector('.events');
+      eventsSection.innerHTML = '<h2>WHAT\'S NEXT</h2>';
+
+      const eventList = document.createElement('ul');
+      if (data.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = 'Stay tuned for upcoming events.';
+        eventList.appendChild(li);
+      } else {
+        data.forEach(event => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${event.date}:</strong> ${event.description}`;
+          eventList.appendChild(li);
+        });
+      }
+      eventsSection.appendChild(eventList);
+    })
+    .catch(error => {
+      console.error('Error fetching events.json:', error);
+      document.querySelector('.events').innerHTML = '<h2>WHAT\'S NEXT</h2><p>Stay tuned for upcoming events.</p>';
+    });
+</script>
 </body>
 </html>
