@@ -5,10 +5,10 @@ body, h1, h2, p, ul {
   box-sizing: border-box;
 }
 
-/* Set #570066 background and aqua text for the body */
+/* Set #012b27 background and #5ea9a2 text for the body */
 body {
-  background-color: #570066;
-  color: aqua;
+  background-color: #012b27;
+  color: #5ea9a2;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   padding: 1rem;
@@ -17,7 +17,7 @@ body {
 .band-name {
   font-size: 3rem;
   font-weight: 900;
-  color: pink;
+  color: #bd5d12;
   text-align: center;
   margin-bottom: 0.2rem;
   letter-spacing: 0.1rem;
@@ -36,51 +36,53 @@ header img {
 }
 
 .band-bio {
-  color: aqua;
+  color: #5ea9a2;
   font-size: 1.2rem;
   margin-top: 0.5rem;
 }
 
 /* Main content layout for music and events */
 .main-content {
-  color: #570066;
+  color: #012b27;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0 2rem;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
 .feature, .events {
   text-align: center;
   flex: 1 1 40%;
-  max-width: 500px;
-  background-color: #00ffb0;
-  padding: 1rem;
-  border-radius: 12px;
+  max-width: 400px;
+  background-color: #bd5d12;
+  padding: .25rem;
+  border-radius: 20px;
 }
 
 /* Headings */
 h1, h2 {
   font-family: Arial, sans-serif;
-  color: hotpink; /* hotpink headlines */
+  color: #5ea9a2; /* #5ea9a2 headlines */
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: .25rem;
 }
 
 /* Song feature styles */
 .cover-art {
-  width: 100%;
-  max-width: 300px;
+  width: 150%;
+  max-width: 350px;
   display: block;
-  margin: 1rem auto;
+  margin: .25rem auto;
+  border-radius: 20px;
 }
 
 audio {
   display: block;
   margin: 1rem auto;
-  width: 100%;
+  width: 90%;
+  color: #5ea9a2
 }
 
 /* Event list */
@@ -107,7 +109,7 @@ footer {
 }
 
 footer a {
-  color: aqua;
+  color: #bd5d12;
   text-decoration: none;
   font-weight: bold;
   margin: 0 0.5rem;
@@ -116,6 +118,6 @@ footer a {
 }
 
 footer a:hover {
-  color: #ff69b4;
+  color: #47a5f1;
   text-decoration: underline;
 }
