@@ -52,15 +52,6 @@ header img {
   padding: 0 1rem;
 }
 
-.feature, .events {
-  text-align: center;
-  flex: 1 1 40%;
-  max-width: 400px;
-  background-color: #bd5d12;
-  padding: .25rem;
-  border-radius: 20px;
-}
-
 /* Headings */
 h1, h2 {
   font-family: Arial, sans-serif;
@@ -111,6 +102,15 @@ h1, h2 {
 #playlistList li {
   margin: 0.5rem 0;
   cursor: pointer;
+}
+
+.feature, .events {
+  text-align: center;
+  flex: 1 1 40%;
+  max-width: 400px;
+  background-color: #bd5d12;
+  padding: .25rem;
+  border-radius: 20px;
 }
 
 /* Event list */
